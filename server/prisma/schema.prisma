@@ -1,0 +1,51 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// DIGI NEWS NETWORK — Prisma Schema
+// Phase 1: Connection configuration stub.
+// Phase 2: All entity models are defined here.
+//          See docs/database/ for ER diagram and data dictionary.
+// ─────────────────────────────────────────────────────────────────────────────
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  // Enable relation mode for PlanetScale / serverless MySQL (if needed):
+  // relationMode = "prisma"
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Phase 2 models will be added here:
+//
+//   model User              { ... }
+//   model EmployeeProfile   { ... }
+//   model Role              { ... }
+//   model Permission        { ... }
+//   model UserRole          { ... }
+//   model RolePermission    { ... }
+//   model UserScopeAssignment { ... }
+//   model Language          { ... }
+//   model State             { ... }
+//   model District          { ... }
+//   model Category          { ... }
+//   model Tag               { ... }
+//   model Story             { ... }
+//   model Article           { ... }
+//   model ArticleVersion    { ... }
+//   model ArticleTag        { ... }
+//   model StoryAssignment   { ... }
+//   model EditorialComment  { ... }
+//   model MediaAsset        { ... }
+//   model Advertiser        { ... }
+//   model AdCampaign        { ... }
+//   model AdPlacement       { ... }
+//   model ReaderBookmark    { ... }
+//   model Comment           { ... }
+//   model Notification      { ... }
+//   model RefreshToken      { ... }
+//   model AuditLog          { ... }
+// ─────────────────────────────────────────────────────────────────────────────
+

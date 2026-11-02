@@ -1,0 +1,50 @@
+/* ── Tailwind CSS v4 ──────────────────────────────────────────────────────── */
+@import "tailwindcss";
+
+/* ── Design Tokens (Admin) ───────────────────────────────────────────────── */
+@theme {
+  --color-brand-primary:   #b91c1c;
+  --color-brand-dark:      #991b1b;
+  --color-brand-light:     #fef2f2;
+
+  --color-sidebar-bg:      #111827;
+  --color-sidebar-header:  #b91c1c;
+  --color-sidebar-text:    #d1d5db;
+  --color-sidebar-hover:   #1f2937;
+  --color-sidebar-active:  #374151;
+
+  --font-family-sans: "Inter", "Noto Sans Kannada", ui-sans-serif, system-ui, sans-serif;
+  --font-family-mono: ui-monospace, "Cascadia Code", monospace;
+}
+
+/* ── Base ──────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-sans);
+  -webkit-font-smoothing: antialiased;
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  border-radius: 3px;
+}
+

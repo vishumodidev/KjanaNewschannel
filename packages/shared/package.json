@@ -1,0 +1,15 @@
+{
+  "name": "@diginews/shared",
+  "version": "1.0.0",
+  "description": "Shared constants and types for DIGI NEWS NETWORK",
+  "private": true,
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./constants/roles": "./src/constants/roles.js",
+    "./constants/statuses": "./src/constants/statuses.js",
+    "./constants/languages": "./src/constants/languages.js"
+  }
+}
+
