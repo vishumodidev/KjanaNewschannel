@@ -1,4 +1,4 @@
-import { AppError } from '../../errors/AppError.js'
+import { AppError } from '../errors/AppError.js'
 
 // ── Validation middleware factory ───────────────────────────────────────────
 // Usage: router.post('/path', validate(MyZodSchema), controller)

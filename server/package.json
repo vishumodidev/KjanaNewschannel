@@ -17,18 +17,21 @@
     "db:generate": "prisma generate"
   },
   "dependencies": {
+    "@diginews/shared": "*",
+    "argon2": "^0.45.2",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^5.0.1",
-    "helmet": "^8.0.0",
     "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.3",
     "pino": "^9.5.0",
     "pino-pretty": "^13.0.0",
-    "zod": "^3.23.8",
-    "@diginews/shared": "*"
+    "zod": "^3.23.8"
   },
   "devDependencies": {
-    "prisma": "^6.1.0",
-    "@prisma/client": "^6.1.0"
+    "@prisma/client": "^6.1.0",
+    "prisma": "^6.1.0"
   }
 }

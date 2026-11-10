@@ -2,12 +2,12 @@ services:
   # ── MySQL 8 Database ─────────────────────────────────────────────────
   db:
     image: mysql:8.0
-    container_name: diginews_mysql
+    container_name: jananews_mysql
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-rootpassword}
-      MYSQL_DATABASE: ${DB_NAME:-diginews_db}
-      MYSQL_USER: ${DB_USER:-diginews}
+      MYSQL_DATABASE: ${DB_NAME:-jananews_db}
+      MYSQL_USER: ${DB_USER:-jananews}
       MYSQL_PASSWORD: ${DB_PASSWORD:-devpassword}
     ports:
       - "${DB_PORT:-3306}:3306"
@@ -28,7 +28,7 @@ services:
   # ── Adminer (database GUI for development) ───────────────────────────
   adminer:
     image: adminer:latest
-    container_name: diginews_adminer
+    container_name: jananews_adminer
     restart: unless-stopped
     ports:
       - "8080:8080"
@@ -40,5 +40,5 @@ services:
 
 volumes:
   mysql_data:
-    name: diginews_mysql_data
+    name: jananews_mysql_data
 

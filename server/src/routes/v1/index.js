@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { healthRouter } from '../../modules/health/health.routes.js'
+import { authRouter } from '../../modules/auth/auth.routes.js'
 
 // ── API v1 root router ──────────────────────────────────────────────────────
 // Mount module-specific routers here as they are implemented in later phases.
@@ -9,8 +10,10 @@ export const apiV1Router = Router()
 // ── Health ──────────────────────────────────────────────────────────────────
 apiV1Router.use('/health', healthRouter)
 
-// ── Phase 2+ routes (added progressively) ───────────────────────────────────
-// apiV1Router.use('/auth',           authRouter)
+// ── Authentication & Authorization (Phase 2) ────────────────────────────────
+apiV1Router.use('/auth', authRouter)
+
+// ── Phase 3+ routes (added progressively) ───────────────────────────────────
 // apiV1Router.use('/languages',      languagesRouter)
 // apiV1Router.use('/news',           newsRouter)
 // apiV1Router.use('/search',         searchRouter)
