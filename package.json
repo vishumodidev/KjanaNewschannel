@@ -1,7 +1,7 @@
 {
   "name": "diginews-network",
   "version": "1.0.0",
-  "description": "DIGI NEWS NETWORK — Production multilingual Indian news platform",
+  "description": "JANA NEWS NETWORK — Production multilingual Indian news platform",
   "private": true,
   "type": "module",
   "workspaces": [

@@ -4,8 +4,8 @@
 /* ── Design Tokens ────────────────────────────────────────────────────────── */
 /* Customise the Tailwind theme using @theme.  These generate utility classes. */
 @theme {
-  /* Brand colours (DIGI NEWS NETWORK — red and white) */
-  --color-brand-50:  #fff1f2;
+  /* Brand colours (K JANA NEWS NETWORK — red and white) */
+  --color-brand-50: #fff1f2;
   --color-brand-100: #ffe4e6;
   --color-brand-200: #fecdd3;
   --color-brand-300: #fda4af;
@@ -18,7 +18,7 @@
   --color-brand-950: #4c0519;
 
   /* Primary = red-700 equivalent */
-  --color-primary:       #b91c1c;
+  --color-primary: #b91c1c;
   --color-primary-hover: #991b1b;
   --color-primary-light: #fef2f2;
 
@@ -35,6 +35,7 @@
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -79,13 +80,16 @@ body {
   width: 6px;
   height: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: #f1f5f9;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #94a3b8;
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #64748b;
 }
@@ -94,6 +98,7 @@ body {
 .article-body {
   line-height: 1.8;
 }
+
 .article-body h1,
 .article-body h2,
 .article-body h3 {
@@ -101,11 +106,12 @@ body {
   margin-top: 1.5em;
   margin-bottom: 0.5em;
 }
+
 .article-body p {
   margin-bottom: 1em;
 }
+
 .article-body a {
   color: var(--color-primary);
   text-decoration: underline;
 }
-

@@ -39,7 +39,7 @@ export function LoginPage() {
             />
           </div>
           <h1 className="text-2xl font-bold text-gray-900">JANA TV</h1>
-          <p className="text-xs text-gray-500 font-semibold tracking-wider">DIGI NEWS NETWORK</p>
+          <p className="text-xs text-gray-500 font-semibold tracking-wider">JANA NEWS NETWORK</p>
           <p className="text-xs text-gray-400 mt-1">Newsroom CMS — Staff Portal</p>
         </div>
 

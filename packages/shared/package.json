@@ -1,7 +1,7 @@
 {
   "name": "@diginews/shared",
   "version": "1.0.0",
-  "description": "Shared constants and types for DIGI NEWS NETWORK",
+  "description": "Shared constants and types for JANA NEWS NETWORK",
   "private": true,
   "type": "module",
   "main": "src/index.js",
@@ -12,4 +12,3 @@
     "./constants/languages": "./src/constants/languages.js"
   }
 }
-

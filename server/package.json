@@ -1,7 +1,7 @@
 {
   "name": "@diginews/server",
   "version": "1.0.0",
-  "description": "DIGI NEWS NETWORK — Express REST API",
+  "description": "JANA NEWS NETWORK — Express REST API",
   "private": true,
   "type": "module",
   "scripts": {
@@ -32,4 +32,3 @@
     "@prisma/client": "^6.1.0"
   }
 }
-

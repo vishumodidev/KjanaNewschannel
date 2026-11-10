@@ -18,7 +18,7 @@ export function DashboardPage() {
       <div>
         <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
         <p className="text-sm text-gray-500 mt-1">
-          Welcome to DIGI NEWS NETWORK Newsroom CMS
+          Welcome to JANA NEWS NETWORK Newsroom CMS
         </p>
       </div>
 

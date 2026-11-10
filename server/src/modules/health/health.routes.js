@@ -11,7 +11,7 @@ healthRouter.get('/', (_req, res) => {
     success: true,
     data: {
       status: 'ok',
-      service: 'DIGI NEWS NETWORK API',
+      service: 'JANA NEWS NETWORK API',
       version: '1.0.0',
       environment: appConfig.env,
       timestamp: new Date().toISOString(),

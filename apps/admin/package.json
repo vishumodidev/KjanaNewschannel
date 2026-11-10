@@ -1,7 +1,7 @@
 {
   "name": "@diginews/admin",
   "version": "1.0.0",
-  "description": "DIGI NEWS NETWORK — Admin CMS / Newsroom",
+  "description": "JANA NEWS NETWORK — Admin CMS / Newsroom",
   "private": true,
   "type": "module",
   "scripts": {
@@ -39,4 +39,3 @@
     "jsdom": "^25.0.1"
   }
 }
-

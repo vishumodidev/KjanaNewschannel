@@ -17,16 +17,16 @@ export function Footer() {
               <div className="h-11 w-9 rounded-md bg-white p-0.5 shadow overflow-hidden flex items-center justify-center flex-shrink-0">
                 <img
                   src="/logo.jpg"
-                  alt="JANA TV - DIGI NEWS NETWORK"
+                  alt="JANA TV - JANA NEWS NETWORK"
                   className="h-full w-full object-contain"
                 />
               </div>
               <div>
                 <span className="text-2xl font-black text-red-500 tracking-tight leading-none kannada">
-                  ದಿಗಿ ನ್ಯೂಸ್ ನೆಟ್‌ವರ್ಕ್
+                  ಜನಾ ನ್ಯೂಸ್ ನೆಟ್‌ವರ್ಕ್
                 </span>
                 <p className="text-[11px] font-bold text-gray-400 tracking-widest mt-0.5">
-                  JANA TV • DIGI NEWS NETWORK
+                  JANA TV • JANA NEWS NETWORK
                 </p>
               </div>
             </Link>
@@ -176,7 +176,7 @@ export function Footer() {
         {/* Bottom copyright line */}
         <div className="mt-10 pt-6 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
           <p className="kannada text-center sm:text-left">
-            © 2026 DIGI NEWS NETWORK. ಎಲ್ಲಾ ಹಕ್ಕುಗಳು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.
+            © 2026 JANA NEWS NETWORK. ಎಲ್ಲಾ ಹಕ್ಕುಗಳು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.
           </p>
           <div className="flex flex-wrap justify-center sm:justify-end items-center gap-2 sm:gap-4 text-xs text-gray-400 kannada">
             <Link to="/privacy" className="hover:text-white">

@@ -1,7 +1,7 @@
 {
   "name": "@diginews/web",
   "version": "1.0.0",
-  "description": "DIGI NEWS NETWORK — Public news website",
+  "description": "JANA NEWS NETWORK — Public news website",
   "private": true,
   "type": "module",
   "scripts": {
@@ -39,4 +39,3 @@
     "jsdom": "^25.0.1"
   }
 }
-

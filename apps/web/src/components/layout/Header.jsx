@@ -92,7 +92,7 @@ export function Header({ mobileDrawerOpen, setMobileDrawerOpen, mobileSearchOpen
             <div className="relative h-10 w-8 sm:h-12 sm:w-10 bg-white rounded-md border border-gray-200 shadow-2xs p-0.5 overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform flex-shrink-0">
               <img
                 src="/logo.jpg"
-                alt="JANA TV - DIGI NEWS NETWORK"
+                alt="JANA TV - JANA NEWS NETWORK"
                 className="h-full w-full object-contain"
               />
             </div>
@@ -100,7 +100,7 @@ export function Header({ mobileDrawerOpen, setMobileDrawerOpen, mobileSearchOpen
             <div className="flex flex-col min-w-0">
               <div className="flex items-baseline gap-1.5">
                 <span className="text-xl sm:text-2xl md:text-3xl font-extrabold text-red-700 tracking-tight leading-none kannada truncate">
-                  ದಿಗಿ ನ್ಯೂಸ್ ನೆಟ್‌ವರ್ಕ್
+                  ಜನಾ ನ್ಯೂಸ್ ನೆಟ್‌ವರ್ಕ್
                 </span>
               </div>
               <div className="flex items-center gap-1 sm:gap-2 mt-0.5 text-[10px] sm:text-[11px] font-semibold text-gray-700 truncate">
@@ -109,7 +109,7 @@ export function Header({ mobileDrawerOpen, setMobileDrawerOpen, mobileSearchOpen
                 <span className="font-bold text-blue-700 tracking-wider">JANA TV</span>
                 <span className="text-gray-300 hidden sm:inline">•</span>
                 <span className="font-bold text-gray-800 tracking-wider hidden md:inline">
-                  DIGI NEWS NETWORK
+                  JANA NEWS NETWORK
                 </span>
               </div>
             </div>
@@ -177,9 +177,8 @@ export function Header({ mobileDrawerOpen, setMobileDrawerOpen, mobileSearchOpen
                         setSelectedLang(lang)
                         setLangMenuOpen(false)
                       }}
-                      className={`w-full text-left px-3 py-1.5 hover:bg-red-50 hover:text-red-700 transition-colors ${
-                        selectedLang === lang ? 'text-red-700 font-bold bg-red-50/50' : 'text-gray-700'
-                      }`}
+                      className={`w-full text-left px-3 py-1.5 hover:bg-red-50 hover:text-red-700 transition-colors ${selectedLang === lang ? 'text-red-700 font-bold bg-red-50/50' : 'text-gray-700'
+                        }`}
                     >
                       {lang}
                     </button>
@@ -294,11 +293,10 @@ export function Header({ mobileDrawerOpen, setMobileDrawerOpen, mobileSearchOpen
             {/* Red Active 'ಮುಖಪುಟ' Home Block */}
             <Link
               to="/"
-              className={`flex items-center gap-1 px-3 sm:px-4 py-2 sm:py-2.5 font-bold text-xs sm:text-sm tracking-wide flex-shrink-0 transition-colors kannada ${
-                location.pathname === '/'
-                  ? 'bg-red-700 text-white shadow-2xs'
-                  : 'bg-red-700 hover:bg-red-800 text-white'
-              }`}
+              className={`flex items-center gap-1 px-3 sm:px-4 py-2 sm:py-2.5 font-bold text-xs sm:text-sm tracking-wide flex-shrink-0 transition-colors kannada ${location.pathname === '/'
+                ? 'bg-red-700 text-white shadow-2xs'
+                : 'bg-red-700 hover:bg-red-800 text-white'
+                }`}
             >
               <Home size={15} />
               <span>ಮುಖಪುಟ</span>
@@ -312,11 +310,10 @@ export function Header({ mobileDrawerOpen, setMobileDrawerOpen, mobileSearchOpen
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`px-2 sm:px-2.5 py-2 text-xs sm:text-sm font-semibold whitespace-nowrap transition-colors flex items-center gap-0.5 kannada flex-shrink-0 ${
-                      isActive
-                        ? 'text-red-700 border-b-2 border-red-700 font-bold'
-                        : 'text-gray-800 hover:text-red-700'
-                    }`}
+                    className={`px-2 sm:px-2.5 py-2 text-xs sm:text-sm font-semibold whitespace-nowrap transition-colors flex items-center gap-0.5 kannada flex-shrink-0 ${isActive
+                      ? 'text-red-700 border-b-2 border-red-700 font-bold'
+                      : 'text-gray-800 hover:text-red-700'
+                      }`}
                   >
                     <span>{link.label}</span>
                     {link.hasDropdown && <ChevronDown size={11} className="text-gray-400" />}
@@ -399,8 +396,8 @@ export function Header({ mobileDrawerOpen, setMobileDrawerOpen, mobileSearchOpen
                   <img src="/logo.jpg" alt="Logo" className="h-full w-full object-contain" />
                 </div>
                 <div>
-                  <p className="font-extrabold text-base leading-none kannada">ದಿಗಿ ನ್ಯೂಸ್ ನೆಟ್‌ವರ್ಕ್</p>
-                  <p className="text-[10px] text-red-200 mt-0.5">JANA TV • DIGI NEWS</p>
+                  <p className="font-extrabold text-base leading-none kannada">ಜನಾ ನ್ಯೂಸ್ ನೆಟ್‌ವರ್ಕ್</p>
+                  <p className="text-[10px] text-red-200 mt-0.5">JANA TV • JANA NEWS NETWORK</p>
                 </div>
               </div>
 

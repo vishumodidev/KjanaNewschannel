@@ -1,5 +1,5 @@
 /**
- * DIGI NEWS NETWORK - Mock / Seed Data
+ * JANA NEWS NETWORK - Mock / Seed Data
  * Exactly matching the Kannada UI Mockups
  */
 

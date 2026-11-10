@@ -48,6 +48,6 @@ test('GET /api/v1/health returns 200 with service status', async () => {
   assert.equal(res.statusCode, 200)
   assert.equal(res.body.success, true)
   assert.equal(res.body.data.status, 'ok')
-  assert.equal(res.body.data.service, 'DIGI NEWS NETWORK API')
+  assert.equal(res.body.data.service, 'JANA NEWS NETWORK API')
   assert.equal(res.body.data.version, '1.0.0')
 })

@@ -10,7 +10,7 @@ export function AdBanner({ type = 'real-estate' }) {
           ನಿಮ್ಮ ವ್ಯವಹಾರಕ್ಕೆ ಸರಿಯಾದ ಜಾಹೀರಾತು ಪರಿಹಾರ
         </h4>
         <p className="text-xs text-indigo-200 mt-1 kannada">
-          DIGI NEWS NETWORK ನಲ್ಲಿ ಜಾಹೀರಾತು ನೀಡಿ ಲಕ್ಷಾಂತರ ಓದುಗರನ್ನು ತಲುಪಿ
+          JANA NEWS NETWORK ನಲ್ಲಿ ಜಾಹೀರಾತು ನೀಡಿ ಲಕ್ಷಾಂತರ ಓದುಗರನ್ನು ತಲುಪಿ
         </p>
 
         <a

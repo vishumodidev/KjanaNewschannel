@@ -1,4 +1,4 @@
-# DIGI NEWS NETWORK — ದಿಗಿ ನ್ಯೂಸ್ ನೆಟ್‌ವರ್ಕ್
+# JANA NEWS NETWORK — ಜನಾ ನ್ಯೂಸ್ ನೆಟ್‌ವರ್ಕ್ (JANA TV)
 
 > Production-ready multilingual Indian news publishing platform built with React, Node.js, Express, and MySQL.
 
@@ -6,7 +6,7 @@
 
 ## Overview
 
-DIGI NEWS NETWORK is a full-stack news platform supporting Kannada, English, Hindi, and additional Indian languages. It consists of:
+JANA NEWS NETWORK (ಜನಾ ನ್ಯೂಸ್ ನೆಟ್‌ವರ್ಕ್) is a full-stack news platform supporting Kannada, English, Hindi, and additional Indian languages. It consists of:
 
 | Application | Description | Port |
 |-------------|-------------|------|
@@ -164,5 +164,5 @@ GET http://localhost:3000/api/v1/health
 
 ## Licence
 
-Proprietary — All rights reserved. DIGI NEWS NETWORK.
+Proprietary — All rights reserved. K JANA NEWS NETWORK.
 
