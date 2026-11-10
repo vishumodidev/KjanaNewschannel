@@ -132,3 +132,4 @@ test('AuthService refresh token reuse detection invalidates family', async () =>
 
   assert.ok(revokedFamilies.includes(family), 'Compromised family must be revoked immediately')
 })
+

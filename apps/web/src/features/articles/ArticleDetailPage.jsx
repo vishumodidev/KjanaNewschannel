@@ -1,4 +1,7 @@
-import { Link } from 'react-router'
+import { Link, useParams } from 'react-router'
+import { useQuery } from '@tanstack/react-query'
+import apiClient from '../../lib/apiClient'
+import { queryKeys } from '../../lib/queryKeys'
 import {
   Clock,
   MapPin,
@@ -13,7 +16,32 @@ import { TrendingWidget } from '../../components/news/TrendingWidget'
 import { AdBanner } from '../../components/advertising/AdBanner'
 
 export function ArticleDetailPage() {
-  const article = MOCK_ARTICLE_DETAIL
+  const { slug } = useParams()
+
+  const { data } = useQuery({
+    queryKey: queryKeys.news.detail(slug),
+    queryFn: () => apiClient.get(`/news/${slug}?lang=kn`),
+    enabled: Boolean(slug),
+  })
+
+  const apiArticle = data?.data
+  const article = apiArticle
+    ? {
+        ...MOCK_ARTICLE_DETAIL,
+        headline: apiArticle.headline,
+        summary: apiArticle.summary,
+        body: apiArticle.body,
+        author: apiArticle.author?.displayName || MOCK_ARTICLE_DETAIL.author,
+        location: apiArticle.district?.nameKn || MOCK_ARTICLE_DETAIL.location,
+        category: apiArticle.category?.nameKn || MOCK_ARTICLE_DETAIL.category,
+        date: apiArticle.publishedAt
+          ? new Date(apiArticle.publishedAt).toLocaleDateString()
+          : MOCK_ARTICLE_DETAIL.date,
+        views: `${apiArticle.viewCount || 0} ವೀಕ್ಷಣೆ`,
+        readTime: `${apiArticle.readingTimeMinutes || 3} ನಿಮಿಷ ಓದು`,
+        availableTranslations: apiArticle.availableTranslations || [],
+      }
+    : MOCK_ARTICLE_DETAIL
 
   return (
     <div className="space-y-6">

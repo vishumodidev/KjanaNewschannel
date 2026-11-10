@@ -59,3 +59,4 @@ export class TaxonomyController {
 }
 
 export const taxonomyController = new TaxonomyController()
+

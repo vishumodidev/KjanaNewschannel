@@ -160,3 +160,4 @@ test('TaxonomyService returns categories and languages', async () => {
   assert.equal(categories.length, 2)
   assert.equal(categories[0].slug, 'karnataka')
 })
+

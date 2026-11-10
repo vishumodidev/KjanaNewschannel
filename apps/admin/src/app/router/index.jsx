@@ -31,12 +31,34 @@ const router = createBrowserRouter([
           return { Component: DashboardPage }
         },
       },
-      // Phase 5 routes (added progressively):
-      // { path: 'articles',             lazy: () => ... }
-      // { path: 'articles/new',         lazy: () => ... }
-      // { path: 'articles/:id/edit',    lazy: () => ... }
-      // { path: 'editorial/queue',      lazy: () => ... }
-      // { path: 'translations',         lazy: () => ... }
+      {
+        path: 'articles',
+        lazy: async () => {
+          const { ArticlesListPage } = await import('../../features/articles/ArticlesListPage.jsx')
+          return { Component: ArticlesListPage }
+        },
+      },
+      {
+        path: 'articles/new',
+        lazy: async () => {
+          const { ArticleEditorPage } = await import('../../features/articles/ArticleEditorPage.jsx')
+          return { Component: ArticleEditorPage }
+        },
+      },
+      {
+        path: 'editorial/queue',
+        lazy: async () => {
+          const { ReviewQueuePage } = await import('../../features/editorial/ReviewQueuePage.jsx')
+          return { Component: ReviewQueuePage }
+        },
+      },
+      {
+        path: 'translations',
+        lazy: async () => {
+          const { TranslationsPage } = await import('../../features/translations/TranslationsPage.jsx')
+          return { Component: TranslationsPage }
+        },
+      },
       // { path: 'media',                lazy: () => ... }
       // { path: 'users',                lazy: () => ... }
       // { path: 'roles',                lazy: () => ... }

@@ -171,3 +171,4 @@ export class EditorialRepository {
 }
 
 export const editorialRepository = new EditorialRepository()
+

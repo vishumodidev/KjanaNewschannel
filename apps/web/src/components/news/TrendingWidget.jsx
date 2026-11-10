@@ -1,8 +1,28 @@
 import { Link } from 'react-router'
 import { Flame } from 'lucide-react'
+import { useQuery } from '@tanstack/react-query'
 import { MOCK_TRENDING } from '../../data/mockNewsData'
+import apiClient from '../../lib/apiClient'
+import { queryKeys } from '../../lib/queryKeys'
 
 export function TrendingWidget() {
+  const { data } = useQuery({
+    queryKey: queryKeys.news.trending(),
+    queryFn: () => apiClient.get('/news/trending?lang=kn'),
+    staleTime: 60_000,
+  })
+
+  const apiTrending = data?.data?.length
+    ? data.data.map((item) => ({
+        rank: item.rank,
+        title: item.headline,
+        views: `${item.viewCount} ವೀಕ್ಷಣೆ`,
+        slug: item.slug,
+      }))
+    : null
+
+  const trendingItems = apiTrending || MOCK_TRENDING
+
   return (
     <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-2xs">
       <div className="flex items-center gap-2 border-b border-gray-100 pb-2.5 mb-3">
@@ -11,7 +31,7 @@ export function TrendingWidget() {
       </div>
 
       <div className="divide-y divide-gray-100">
-        {MOCK_TRENDING.map((item) => (
+        {trendingItems.map((item) => (
           <Link
             key={item.rank}
             to={`/news/${item.slug}`}
@@ -36,4 +56,3 @@ export function TrendingWidget() {
     </div>
   )
 }
-

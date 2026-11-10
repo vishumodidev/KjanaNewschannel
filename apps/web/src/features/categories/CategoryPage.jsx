@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
+import { useQuery } from '@tanstack/react-query'
+import apiClient from '../../lib/apiClient'
+import { queryKeys } from '../../lib/queryKeys'
 import { Eye, Clock } from 'lucide-react'
 import { MOCK_KARNATAKA_PAGE } from '../../data/mockNewsData'
 import { WeatherWidget } from '../../components/news/WeatherWidget'
@@ -8,7 +11,24 @@ import { AdBanner } from '../../components/advertising/AdBanner'
 
 export function CategoryPage() {
   const [activeTab, setActiveTab] = useState('ಇತ್ತೀಚಿನ')
-  const page = MOCK_KARNATAKA_PAGE
+
+  const categoryQuery = useQuery({
+    queryKey: queryKeys.news.list({ category: 'karnataka' }),
+    queryFn: () => apiClient.get('/news?category=karnataka&lang=kn'),
+  })
+
+  const apiArticles = categoryQuery.data?.data?.articles
+  const page = apiArticles?.length
+    ? {
+        ...MOCK_KARNATAKA_PAGE,
+        leadStory: {
+          ...MOCK_KARNATAKA_PAGE.leadStory,
+          headline: apiArticles[0].headline,
+          summary: apiArticles[0].summary,
+          slug: apiArticles[0].slug,
+        },
+      }
+    : MOCK_KARNATAKA_PAGE
 
   return (
     <div className="space-y-6">

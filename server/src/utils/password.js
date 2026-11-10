@@ -30,3 +30,4 @@ export async function verifyPassword(hash, plainPassword) {
     return false
   }
 }
+

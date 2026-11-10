@@ -180,3 +180,4 @@ test('requireScope allows GLOBAL scope user to access any district', async () =>
     })
   })
 })
+

@@ -1,15 +1,11 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
+import { login } from './authStore.js'
 
-/**
- * LoginPage — Phase 1 scaffold.
- *
- * Full implementation with React Hook Form, Zod validation,
- * Argon2id-backed auth, JWT tokens, and rate-limit feedback
- * is implemented in Phase 2.
- */
 export function LoginPage() {
   const navigate = useNavigate()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
@@ -18,12 +14,14 @@ export function LoginPage() {
     setLoading(true)
     setError('')
 
-    // Phase 2: Replace with authService.login(email, password)
-    await new Promise((r) => setTimeout(r, 600))
-
-    // Scaffold: navigate directly to dashboard
-    navigate('/dashboard')
-    setLoading(false)
+    try {
+      await login({ email, password })
+      navigate('/dashboard')
+    } catch (err) {
+      setError(err.message || 'Invalid email or password. Please try again.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -61,9 +59,11 @@ export function LoginPage() {
               <input
                 id="email"
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 autoComplete="email"
                 required
-                placeholder="you@diginewsnetwork.com"
+                placeholder="superadmin@jananewsnetwork.com"
                 className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
               />
             </div>
@@ -75,6 +75,8 @@ export function LoginPage() {
               <input
                 id="password"
                 type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 autoComplete="current-password"
                 required
                 placeholder="••••••••"
@@ -85,15 +87,16 @@ export function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-red-700 hover:bg-red-800 disabled:bg-red-400 text-white font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors"
+              className="w-full bg-red-700 hover:bg-red-800 disabled:bg-red-400 text-white font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors cursor-pointer"
             >
               {loading ? 'Signing in…' : 'Sign in'}
             </button>
           </form>
 
-          <p className="text-xs text-gray-400 text-center mt-6">
-            Phase 1 scaffold — authentication implemented in Phase 2
-          </p>
+          <div className="mt-6 pt-4 border-t border-gray-100 text-xs text-gray-500 text-center">
+            <p>Default Super Admin credentials:</p>
+            <p className="font-mono text-gray-700 mt-0.5">superadmin@jananewsnetwork.com</p>
+          </div>
         </div>
       </div>
     </div>
@@ -101,4 +104,3 @@ export function LoginPage() {
 }
 
 export default LoginPage
-

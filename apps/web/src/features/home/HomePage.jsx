@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
+import { useQuery } from '@tanstack/react-query'
+import apiClient from '../../lib/apiClient'
+import { queryKeys } from '../../lib/queryKeys'
 import {
   ChevronLeft,
   ChevronRight,
@@ -20,6 +23,29 @@ import { AdBanner } from '../../components/advertising/AdBanner'
 
 export function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0)
+
+  // Query live published news
+  const { data: newsFeed } = useQuery({
+    queryKey: queryKeys.news.list({ limit: 4 }),
+    queryFn: () => apiClient.get('/news?limit=4&lang=kn'),
+    staleTime: 60_000,
+  })
+
+  const apiRecentStories = newsFeed?.data?.articles?.length
+    ? newsFeed.data.articles.map((art, idx) => ({
+        id: art.id,
+        category: art.category?.nameKn || 'ಸುದ್ದಿ',
+        headline: art.headline,
+        image:
+          art.featuredImage?.cdnUrl ||
+          MOCK_RECENT_MAJOR_STORIES[idx % MOCK_RECENT_MAJOR_STORIES.length]?.image,
+        time: art.publishedAt ? new Date(art.publishedAt).toLocaleDateString() : 'ಇತ್ತೀಚೆಗೆ',
+        views: `${art.viewCount} ವೀಕ್ಷಣೆ`,
+        slug: art.slug,
+      }))
+    : null
+
+  const recentStories = apiRecentStories || MOCK_RECENT_MAJOR_STORIES
 
   // Carousel slide triggers (for interactive preview)
   const slides = [
@@ -207,7 +233,7 @@ export function HomePage() {
         {/* 5-Column Grid: 4 News Cards + 1 Ad Banner */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 items-stretch">
           {/* 4 Major News Cards */}
-          {MOCK_RECENT_MAJOR_STORIES.map((item) => (
+          {recentStories.map((item) => (
             <Link
               key={item.id}
               to={`/news/${item.slug}`}

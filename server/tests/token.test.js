@@ -45,3 +45,4 @@ test('hashToken is deterministic SHA-256', () => {
   assert.equal(hash1, hash2)
   assert.equal(hash1.length, 64)
 })
+

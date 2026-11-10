@@ -49,3 +49,4 @@ export function optionalAuthenticate(req, _res, next) {
 
   next()
 }
+

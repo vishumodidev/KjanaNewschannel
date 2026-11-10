@@ -14,3 +14,4 @@ test('hashPassword creates valid Argon2id hash and verifyPassword matches correc
   const invalid = await verifyPassword(hash, 'WrongPassword@999')
   assert.equal(invalid, false, 'Incorrect password must not match hash')
 })
+

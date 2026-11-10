@@ -59,3 +59,4 @@ editorialRouter.post(
   validate(assignTranslationSchema),
   editorialController.assignTranslation,
 )
+

@@ -27,3 +27,4 @@ authRouter.post('/login', loginLimiter, validate(loginSchema), authController.lo
 authRouter.post('/refresh', validate(refreshSchema), authController.refresh)
 authRouter.post('/logout', optionalAuthenticate, authController.logout)
 authRouter.get('/me', authenticate, authController.me)
+

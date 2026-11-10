@@ -8,3 +8,4 @@ taxonomyRouter.get('/categories', taxonomyController.getCategories)
 taxonomyRouter.get('/states', taxonomyController.getStates)
 taxonomyRouter.get('/districts', taxonomyController.getDistricts)
 taxonomyRouter.get('/tags', taxonomyController.getTags)
+

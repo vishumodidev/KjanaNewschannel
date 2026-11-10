@@ -68,3 +68,4 @@ export class NewsController {
 }
 
 export const newsController = new NewsController()
+

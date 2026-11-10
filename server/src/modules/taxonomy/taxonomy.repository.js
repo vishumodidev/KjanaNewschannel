@@ -73,3 +73,4 @@ export class TaxonomyRepository {
 }
 
 export const taxonomyRepository = new TaxonomyRepository()
+

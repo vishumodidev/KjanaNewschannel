@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router'
+import { useQuery } from '@tanstack/react-query'
+import apiClient from '../../lib/apiClient'
+import { queryKeys } from '../../lib/queryKeys'
 import {
   Search,
   Globe,
@@ -44,14 +47,32 @@ export function Header({ mobileDrawerOpen, setMobileDrawerOpen, mobileSearchOpen
   const isSearchOpen = mobileSearchOpen !== undefined ? mobileSearchOpen : internalSearch
   const setIsSearchOpen = setMobileSearchOpen || setInternalSearch
 
+  // Live breaking news query
+  const { data: breakingData } = useQuery({
+    queryKey: queryKeys.news.breaking(),
+    queryFn: () => apiClient.get('/news/breaking?lang=kn'),
+    staleTime: 30_000,
+  })
+
+  const liveBreaking = breakingData?.data?.length
+    ? breakingData.data.map((item) => ({
+        id: item.id,
+        title: item.headline,
+        slug: item.slug,
+      }))
+    : null
+
+  const breakingList = liveBreaking || MOCK_BREAKING
+  const currentBreaking = breakingList[tickerIndex % breakingList.length] || MOCK_BREAKING[0]
+
   // Auto-scroll ticker
   useEffect(() => {
     if (!isTickerPlaying) return
     const timer = setInterval(() => {
-      setTickerIndex((prev) => (prev + 1) % MOCK_BREAKING.length)
+      setTickerIndex((prev) => (prev + 1) % breakingList.length)
     }, 4500)
     return () => clearInterval(timer)
-  }, [isTickerPlaying])
+  }, [isTickerPlaying, breakingList.length])
 
   const handleSearchSubmit = (e) => {
     e.preventDefault()
@@ -61,8 +82,6 @@ export function Header({ mobileDrawerOpen, setMobileDrawerOpen, mobileSearchOpen
       navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`)
     }
   }
-
-  const currentBreaking = MOCK_BREAKING[tickerIndex]
 
   const navLinks = [
     { label: 'ಕರ್ನಾಟಕ', path: '/category/karnataka', icon: MapPin },

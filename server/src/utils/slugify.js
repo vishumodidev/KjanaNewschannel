@@ -141,3 +141,4 @@ export function slugify(text, { withSuffix = true, maxLength = 80 } = {}) {
 
   return processed
 }
+

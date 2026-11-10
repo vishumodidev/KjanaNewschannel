@@ -166,3 +166,4 @@ test('EditorialService creates translation assignment for bilingual expansion', 
   assert.equal(result.status, 'PENDING')
   assert.equal(createdAssignment.assignedToId, 7n)
 })
+
