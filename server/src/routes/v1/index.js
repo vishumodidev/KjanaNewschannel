@@ -3,6 +3,7 @@ import { healthRouter } from '../../modules/health/health.routes.js'
 import { authRouter } from '../../modules/auth/auth.routes.js'
 import { taxonomyRouter } from '../../modules/taxonomy/taxonomy.routes.js'
 import { newsRouter, storiesRouter } from '../../modules/news/news.routes.js'
+import { editorialRouter } from '../../modules/editorial/editorial.routes.js'
 
 // ── API v1 root router ──────────────────────────────────────────────────────
 // Mount module-specific routers here as they are implemented in later phases.
@@ -20,10 +21,11 @@ apiV1Router.use('/taxonomy', taxonomyRouter)
 apiV1Router.use('/news', newsRouter)
 apiV1Router.use('/stories', storiesRouter)
 
-// ── Phase 4+ routes (added progressively) ───────────────────────────────────
+// ── Editorial & Translation Workflows (Phase 4) ─────────────────────────────
+apiV1Router.use('/editorial', editorialRouter)
+
+// ── Phase 5+ routes (added progressively) ───────────────────────────────────
 // apiV1Router.use('/search',         searchRouter)
-// apiV1Router.use('/editorial',      editorialRouter)
-// apiV1Router.use('/translations',   translationsRouter)
 // apiV1Router.use('/media',          mediaRouter)
 // apiV1Router.use('/admin',          adminRouter)
 // apiV1Router.use('/analytics',      analyticsRouter)
