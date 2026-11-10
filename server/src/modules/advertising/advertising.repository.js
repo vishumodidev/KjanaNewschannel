@@ -23,3 +23,4 @@ export class AdvertisingRepository {
 }
 
 export const advertisingRepository = new AdvertisingRepository()
+

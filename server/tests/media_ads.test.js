@@ -57,3 +57,4 @@ test('MediaService saves valid image buffer and creates media record', async () 
   assert.equal(createdAsset.mimeType, 'image/jpeg')
   assert.equal(createdAsset.altText, 'Namma Metro train entering station')
 })
+

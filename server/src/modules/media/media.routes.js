@@ -18,3 +18,4 @@ mediaRouter.get(
   requirePermission('media.upload', 'story.create', 'story.edit'),
   mediaController.list,
 )
+
