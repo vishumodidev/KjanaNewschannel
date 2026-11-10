@@ -5,6 +5,13 @@ import { appConfig } from '../config/app.config.js'
 // In development, preserve the client instance across HMR reloads to prevent
 // exhausting the MySQL connection pool.
 
+// Enable BigInt serialization in JSON responses
+if (!BigInt.prototype.toJSON) {
+  BigInt.prototype.toJSON = function () {
+    return this.toString()
+  }
+}
+
 const globalForPrisma = globalThis
 
 export const prisma =
