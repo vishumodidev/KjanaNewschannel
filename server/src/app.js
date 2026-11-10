@@ -3,6 +3,7 @@ import cors from 'cors'
 import helmet from 'helmet'
 import cookieParser from 'cookie-parser'
 import rateLimit from 'express-rate-limit'
+import path from 'path'
 import { corsConfig } from './config/cors.config.js'
 import { appConfig } from './config/app.config.js'
 import { requestLogger } from './middleware/requestLogger.js'
@@ -48,6 +49,9 @@ app.use(cookieParser())
 
 // ── Request logging ───────────────────────────────────────────────────────────
 app.use(requestLogger)
+
+// ── Static uploads serving ───────────────────────────────────────────────────
+app.use('/uploads', express.static(path.resolve(appConfig.storage.localPath)))
 
 // ── API routes ────────────────────────────────────────────────────────────────
 app.use('/api/v1', apiV1Router)

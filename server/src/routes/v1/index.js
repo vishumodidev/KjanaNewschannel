@@ -4,6 +4,8 @@ import { authRouter } from '../../modules/auth/auth.routes.js'
 import { taxonomyRouter } from '../../modules/taxonomy/taxonomy.routes.js'
 import { newsRouter, storiesRouter } from '../../modules/news/news.routes.js'
 import { editorialRouter } from '../../modules/editorial/editorial.routes.js'
+import { mediaRouter } from '../../modules/media/media.routes.js'
+import { adsRouter } from '../../modules/advertising/advertising.routes.js'
 
 // ── API v1 root router ──────────────────────────────────────────────────────
 // Mount module-specific routers here as they are implemented in later phases.
@@ -24,9 +26,7 @@ apiV1Router.use('/stories', storiesRouter)
 // ── Editorial & Translation Workflows (Phase 4) ─────────────────────────────
 apiV1Router.use('/editorial', editorialRouter)
 
-// ── Phase 5+ routes (added progressively) ───────────────────────────────────
-// apiV1Router.use('/search',         searchRouter)
-// apiV1Router.use('/media',          mediaRouter)
-// apiV1Router.use('/admin',          adminRouter)
-// apiV1Router.use('/analytics',      analyticsRouter)
+// ── Media & Advertising Pipeline (Phase 7) ──────────────────────────────────
+apiV1Router.use('/media', mediaRouter)
+apiV1Router.use('/ads', adsRouter)
 

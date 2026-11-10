@@ -38,6 +38,25 @@ services:
     environment:
       ADMINER_DESIGN: pepa-linha
 
+  # ── Express 5 API Server ─────────────────────────────────────────────
+  api:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    container_name: jananews_api
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DATABASE_URL: mysql://${DB_USER:-jananews}:${DB_PASSWORD:-devpassword}@db:3306/${DB_NAME:-jananews_db}
+      JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET:-production-super-secret-key-needs-64-characters-long}
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-production-super-refresh-key-needs-64-characters-long}
+
 volumes:
   mysql_data:
     name: jananews_mysql_data
