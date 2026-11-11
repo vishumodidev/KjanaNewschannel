@@ -112,7 +112,7 @@ systemRouter.get('/analytics/stats', async (req, res, next) => {
       prisma.article.count({ where: { status: 'SUBMITTED' } }),
       prisma.mediaAsset.count(),
       prisma.user.count(),
-      prisma.translationAssignment.count(),
+      prisma.article.count({ where: { languageId: { not: 1 } } }),
     ])
 
     // Readership estimate / aggregate by category

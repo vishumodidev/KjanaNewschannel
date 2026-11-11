@@ -11,6 +11,7 @@ export const storiesRouter = Router()
 // ── Public News Feed & Reader Endpoints ─────────────────────────────────────
 newsRouter.get('/breaking', newsController.getBreakingTicker)
 newsRouter.get('/trending', newsController.getTrendingNews)
+newsRouter.get('/feed', validate(newsQuerySchema, 'query'), newsController.getNewsFeed)
 newsRouter.get('/', validate(newsQuerySchema, 'query'), newsController.getNewsFeed)
 newsRouter.get('/:slug', newsController.getArticleBySlug)
 

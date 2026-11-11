@@ -16,8 +16,16 @@ export const validate = (schema, source = 'body') => (req, _res, next) => {
     throw AppError.unprocessable('Request validation failed.', 'VALIDATION_ERROR', fieldErrors)
   }
 
-  // Replace raw input with parsed/coerced data
-  req[source] = result.data
+  // In Express 5, req.query is a getter — mutate existing object properties
+  if (source === 'query' || source === 'params') {
+    if (req[source] && typeof req[source] === 'object') {
+      Object.assign(req[source], result.data)
+    }
+  } else {
+    req[source] = result.data
+  }
+
+  req.validated = result.data
   next()
 }
 

@@ -14,7 +14,7 @@ const server = app.listen(appConfig.port, () => {
       env: appConfig.env,
       nodeVersion: process.version,
     },
-    '🚀  JANA NEWS NETWORK API server started',
+    '🚀  K JANA NEWS NETWORK API server started',
   )
 
   if (appConfig.isDev) {

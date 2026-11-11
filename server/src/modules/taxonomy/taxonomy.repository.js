@@ -8,14 +8,13 @@ export class TaxonomyRepository {
     })
   }
 
-  async findAllCategories({ activeOnly = true, navOnly = false } = {}) {
+  async findAllCategories({ activeOnly = true } = {}) {
     const where = {}
     if (activeOnly) where.isActive = true
-    if (navOnly) where.isNav = true
 
     return prisma.category.findMany({
       where,
-      orderBy: { displayOrder: 'asc' },
+      orderBy: { sortOrder: 'asc' },
     })
   }
 
@@ -25,17 +24,15 @@ export class TaxonomyRepository {
     })
   }
 
-  async findAllStates({ activeOnly = true } = {}) {
+  async findAllStates() {
     return prisma.state.findMany({
-      where: activeOnly ? { isActive: true } : {},
       orderBy: { nameEn: 'asc' },
     })
   }
 
-  async findDistricts({ stateId, activeOnly = true } = {}) {
+  async findDistricts({ stateId } = {}) {
     const where = {}
     if (stateId) where.stateId = Number(stateId)
-    if (activeOnly) where.isActive = true
 
     return prisma.district.findMany({
       where,
@@ -44,7 +41,7 @@ export class TaxonomyRepository {
           select: { id: true, code: true, nameEn: true, nameKn: true },
         },
       },
-      orderBy: [{ displayOrder: 'asc' }, { nameEn: 'asc' }],
+      orderBy: { nameEn: 'asc' },
     })
   }
 
@@ -53,7 +50,7 @@ export class TaxonomyRepository {
     return prisma.tag.findMany({
       where,
       take: limit,
-      orderBy: { usageCount: 'desc' },
+      orderBy: { id: 'desc' },
     })
   }
 

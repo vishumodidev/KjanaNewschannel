@@ -10,6 +10,21 @@ function estimateReadingTime(text) {
   return Math.max(1, Math.ceil(wordCount / 180))
 }
 
+function formatMedia(img) {
+  if (!img) return null
+  return {
+    ...img,
+    id: img.id?.toString(),
+    cdnUrl:
+      img.cdnUrl ||
+      (img.storageKey
+        ? img.storageKey.startsWith('http')
+          ? img.storageKey
+          : `/uploads/${img.storageKey}`
+        : null),
+  }
+}
+
 export class NewsService {
   constructor(repository = newsRepository, taxService = taxonomyService) {
     this.repository = repository
@@ -53,7 +68,7 @@ export class NewsService {
       district: art.story.district,
       state: art.story.state,
       author: art.author,
-      featuredImage: art.featuredImage,
+      featuredImage: formatMedia(art.featuredImage),
     }))
 
     return {
@@ -101,7 +116,7 @@ export class NewsService {
       state: article.story.state,
       author: article.author,
       editor: article.editor,
-      featuredImage: article.featuredImage,
+      featuredImage: formatMedia(article.featuredImage),
       tags: article.articleTags.map((at) => at.tag),
       availableTranslations: article.story.articles
         .filter((trans) => trans.id !== article.id)
@@ -139,7 +154,7 @@ export class NewsService {
       viewCount: item.viewCount.toString(),
       publishedAt: item.publishedAt,
       category: item.story.category,
-      thumbnailUrl: item.featuredImage?.cdnUrl,
+      thumbnailUrl: formatMedia(item.featuredImage)?.cdnUrl,
     }))
   }
 

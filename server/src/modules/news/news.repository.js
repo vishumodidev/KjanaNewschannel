@@ -44,7 +44,7 @@ export class NewsRepository {
             },
           },
           author: { select: { id: true, displayName: true, avatarUrl: true } },
-          featuredImage: { select: { id: true, cdnUrl: true, altText: true, caption: true } },
+          featuredImage: { select: { id: true, storageKey: true, filename: true, altText: true, caption: true } },
         },
       }),
     ])
@@ -85,7 +85,7 @@ export class NewsRepository {
           },
         },
         editor: { select: { id: true, displayName: true } },
-        featuredImage: { select: { id: true, cdnUrl: true, altText: true, caption: true } },
+        featuredImage: { select: { id: true, storageKey: true, filename: true, altText: true, caption: true } },
         articleTags: {
           include: {
             tag: { select: { id: true, slug: true, name: true } },
@@ -140,7 +140,7 @@ export class NewsRepository {
         slug: true,
         viewCount: true,
         publishedAt: true,
-        featuredImage: { select: { cdnUrl: true } },
+        featuredImage: { select: { storageKey: true, filename: true } },
         story: {
           select: {
             category: { select: { slug: true, nameKn: true, nameEn: true } },
