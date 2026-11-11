@@ -1,7 +1,7 @@
 /**
- * BrandLogo — Official JANA TV / JANA NEWS NETWORK Logo
+ * BrandLogo — Official JANA NEWS NETWORK Logo
  *
- * Displays the stylized Diamond "K" and "JANA TV" emblem
+ * Displays the stylized Diamond "K" emblem
  * with configurable height and display variant.
  */
 export function BrandLogo({ size = 'md', showText = true, className = '' }) {
@@ -20,7 +20,7 @@ export function BrandLogo({ size = 'md', showText = true, className = '' }) {
       <div className="relative bg-white rounded-md p-1 border border-gray-100 shadow-2xs overflow-hidden flex-shrink-0 flex items-center justify-center">
         <img
           src="/logo.jpg"
-          alt="JANA TV - JANA NEWS NETWORK"
+          alt="JANA NEWS NETWORK"
           className={`${imgHeight} w-auto object-contain`}
         />
       </div>
@@ -38,7 +38,7 @@ export function BrandLogo({ size = 'md', showText = true, className = '' }) {
             </span>
             <span className="text-[10px] text-gray-400">|</span>
             <span className="text-[10px] font-bold text-gray-800 tracking-wider">
-              JANA TV • JANA NEWS NETWORK
+              JANA NEWS NETWORK
             </span>
           </div>
         </div>

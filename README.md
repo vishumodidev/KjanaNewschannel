@@ -1,4 +1,4 @@
-# JANA NEWS NETWORK — ಜನಾ ನ್ಯೂಸ್ ನೆಟ್‌ವರ್ಕ್ (JANA TV)
+# JANA NEWS NETWORK — ಜನಾ ನ್ಯೂಸ್ ನೆಟ್‌ವರ್ಕ್
 
 > Production-ready multilingual Indian news publishing platform built with React, Node.js, Express, and MySQL.
 

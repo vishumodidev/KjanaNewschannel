@@ -17,7 +17,7 @@ export function Footer() {
               <div className="h-11 w-9 rounded-md bg-white p-0.5 shadow overflow-hidden flex items-center justify-center flex-shrink-0">
                 <img
                   src="/logo.jpg"
-                  alt="JANA TV - JANA NEWS NETWORK"
+                  alt="JANA NEWS NETWORK"
                   className="h-full w-full object-contain"
                 />
               </div>
@@ -26,7 +26,7 @@ export function Footer() {
                   ಜನಾ ನ್ಯೂಸ್ ನೆಟ್‌ವರ್ಕ್
                 </span>
                 <p className="text-[11px] font-bold text-gray-400 tracking-widest mt-0.5">
-                  JANA TV • JANA NEWS NETWORK
+                  JANA NEWS NETWORK
                 </p>
               </div>
             </Link>

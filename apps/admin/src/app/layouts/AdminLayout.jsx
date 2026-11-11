@@ -62,12 +62,12 @@ export function AdminLayout() {
             <div className="h-10 w-8 rounded bg-white p-0.5 shadow overflow-hidden flex items-center justify-center flex-shrink-0">
               <img
                 src="/logo.jpg"
-                alt="JANA TV"
+                alt="JANA NEWS NETWORK"
                 className="h-full w-full object-contain"
               />
             </div>
             <div>
-              <p className="text-sm font-bold leading-tight">JANA TV</p>
+              <p className="text-sm font-bold leading-tight">JANA NEWS</p>
               <p className="text-[11px] text-red-200 mt-0.5">Newsroom CMS</p>
             </div>
           </Link>

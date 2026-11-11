@@ -107,11 +107,11 @@ export function Header({ mobileDrawerOpen, setMobileDrawerOpen, mobileSearchOpen
         <div className="flex items-center justify-between gap-2 sm:gap-4">
           {/* Brand Logo & Tagline */}
           <Link to="/" className="flex items-center gap-2 sm:gap-3 flex-shrink-0 group min-w-0">
-            {/* Official JANA TV Emblem */}
+            {/* Official JANA Emblem */}
             <div className="relative h-10 w-8 sm:h-12 sm:w-10 bg-white rounded-md border border-gray-200 shadow-2xs p-0.5 overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform flex-shrink-0">
               <img
                 src="/logo.jpg"
-                alt="JANA TV - JANA NEWS NETWORK"
+                alt="JANA NEWS NETWORK"
                 className="h-full w-full object-contain"
               />
             </div>
@@ -125,9 +125,7 @@ export function Header({ mobileDrawerOpen, setMobileDrawerOpen, mobileSearchOpen
               <div className="flex items-center gap-1 sm:gap-2 mt-0.5 text-[10px] sm:text-[11px] font-semibold text-gray-700 truncate">
                 <span className="kannada truncate">ಸತ್ಯ | ಸಮಗ್ರ | ಜನರ ಧ್ವನಿ</span>
                 <span className="text-gray-300">|</span>
-                <span className="font-bold text-blue-700 tracking-wider">JANA TV</span>
-                <span className="text-gray-300 hidden sm:inline">•</span>
-                <span className="font-bold text-gray-800 tracking-wider hidden md:inline">
+                <span className="font-bold text-gray-800 tracking-wider">
                   JANA NEWS NETWORK
                 </span>
               </div>
@@ -416,7 +414,7 @@ export function Header({ mobileDrawerOpen, setMobileDrawerOpen, mobileSearchOpen
                 </div>
                 <div>
                   <p className="font-extrabold text-base leading-none kannada">ಜನಾ ನ್ಯೂಸ್ ನೆಟ್‌ವರ್ಕ್</p>
-                  <p className="text-[10px] text-red-200 mt-0.5">JANA TV • JANA NEWS NETWORK</p>
+                  <p className="text-[10px] text-red-200 mt-0.5">JANA NEWS NETWORK</p>
                 </div>
               </div>
 

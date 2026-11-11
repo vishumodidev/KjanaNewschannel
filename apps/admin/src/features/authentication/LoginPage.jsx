@@ -32,11 +32,11 @@ export function LoginPage() {
           <div className="inline-flex items-center justify-center h-20 w-16 bg-white border border-gray-200 rounded-xl mb-3 shadow-md p-1">
             <img
               src="/logo.jpg"
-              alt="JANA TV Logo"
+              alt="JANA NEWS NETWORK Logo"
               className="h-full w-full object-contain"
             />
           </div>
-          <h1 className="text-2xl font-bold text-gray-900">JANA TV</h1>
+          <h1 className="text-2xl font-bold text-gray-900">JANA NEWS</h1>
           <p className="text-xs text-gray-500 font-semibold tracking-wider">JANA NEWS NETWORK</p>
           <p className="text-xs text-gray-400 mt-1">Newsroom CMS — Staff Portal</p>
         </div>
