@@ -56,10 +56,10 @@ export function Header({ mobileDrawerOpen, setMobileDrawerOpen, mobileSearchOpen
 
   const liveBreaking = breakingData?.data?.length
     ? breakingData.data.map((item) => ({
-        id: item.id,
-        title: item.headline,
-        slug: item.slug,
-      }))
+      id: item.id,
+      title: item.headline,
+      slug: item.slug,
+    }))
     : null
 
   const breakingList = liveBreaking || MOCK_BREAKING

@@ -4,7 +4,7 @@
 /* ── Design Tokens ────────────────────────────────────────────────────────── */
 /* Customise the Tailwind theme using @theme.  These generate utility classes. */
 @theme {
-  /* Brand colours (K JANA NEWS NETWORK — red and white) */
+  /* Brand colours (JANA NEWS NETWORK — red and white) */
   --color-brand-50: #fff1f2;
   --color-brand-100: #ffe4e6;
   --color-brand-200: #fecdd3;

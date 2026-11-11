@@ -164,5 +164,5 @@ GET http://localhost:3000/api/v1/health
 
 ## Licence
 
-Proprietary — All rights reserved. K JANA NEWS NETWORK.
+Proprietary — All rights reserved. JANA NEWS NETWORK.
 
