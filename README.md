@@ -82,6 +82,19 @@ npm run dev:admin    # Admin CMS only
 
 ---
 
+## Default Admin Credentials
+
+For the Newsroom CMS at [http://localhost:5174/login](http://localhost:5174/login):
+
+| Field | Value |
+|-------|-------|
+| **Portal URL** | [http://localhost:5174/login](http://localhost:5174/login) |
+| **Email / Username** | `superadmin@jananewsnetwork.com` |
+| **Password** | `AdminPassword@123` |
+| **Role** | `SUPER_ADMIN` (Unrestricted national & system access) |
+
+---
+
 ## Project Structure
 
 ```
