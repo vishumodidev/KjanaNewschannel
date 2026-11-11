@@ -25,6 +25,7 @@ export class AuthRepository {
         },
         scopeAssignments: {
           include: {
+            role: true,
             state: true,
             district: true,
             category: true,
@@ -59,6 +60,7 @@ export class AuthRepository {
         },
         scopeAssignments: {
           include: {
+            role: true,
             state: true,
             district: true,
             category: true,

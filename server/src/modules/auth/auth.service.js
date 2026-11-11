@@ -29,7 +29,7 @@ export class AuthService {
     }
 
     const scopes = user.scopeAssignments.map((sa) => ({
-      roleName: sa.role.name,
+      roleName: sa.role?.name,
       scopeType: sa.scopeType,
       stateId: sa.stateId ?? undefined,
       districtId: sa.districtId ?? undefined,
