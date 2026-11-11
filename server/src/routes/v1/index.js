@@ -6,6 +6,7 @@ import { newsRouter, storiesRouter } from '../../modules/news/news.routes.js'
 import { editorialRouter } from '../../modules/editorial/editorial.routes.js'
 import { mediaRouter } from '../../modules/media/media.routes.js'
 import { adsRouter } from '../../modules/advertising/advertising.routes.js'
+import { systemRouter } from '../../modules/system/system.routes.js'
 
 // ── API v1 root router ──────────────────────────────────────────────────────
 // Mount module-specific routers here as they are implemented in later phases.
@@ -29,4 +30,8 @@ apiV1Router.use('/editorial', editorialRouter)
 // ── Media & Advertising Pipeline (Phase 7) ──────────────────────────────────
 apiV1Router.use('/media', mediaRouter)
 apiV1Router.use('/ads', adsRouter)
+
+// ── System Management (Users, Roles, Analytics, Audit Logs) ─────────────────
+apiV1Router.use('/system', systemRouter)
+apiV1Router.use('/', systemRouter) // Also mount at root for /users, /roles, etc.
 

@@ -1,14 +1,15 @@
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router'
 import { AdminLayout } from '../layouts/AdminLayout.jsx'
+import { AdminErrorBoundary } from './ErrorBoundary.jsx'
+import { NotFoundPage } from './NotFoundPage.jsx'
 
 // ── Admin route definitions ───────────────────────────────────────────────────
-// ProtectedRoute wrapper is added in Phase 2 (after auth implementation).
-// All admin routes will require authentication and appropriate permissions.
 
 const router = createBrowserRouter([
   {
     // Public admin routes (no auth required)
     path: '/login',
+    errorElement: <AdminErrorBoundary />,
     lazy: async () => {
       const { LoginPage } = await import('../../features/authentication/LoginPage.jsx')
       return { Component: LoginPage }
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
     // Protected admin shell
     path: '/',
     element: <AdminLayout />,
+    errorElement: <AdminErrorBoundary />,
     children: [
       {
         index: true,
@@ -59,13 +61,52 @@ const router = createBrowserRouter([
           return { Component: TranslationsPage }
         },
       },
-      // { path: 'media',                lazy: () => ... }
-      // { path: 'users',                lazy: () => ... }
-      // { path: 'roles',                lazy: () => ... }
-      // { path: 'categories',           lazy: () => ... }
-      // { path: 'advertisements',       lazy: () => ... }
-      // { path: 'analytics',            lazy: () => ... }
-      // { path: 'audit-logs',           lazy: () => ... }
+      {
+        path: 'media',
+        lazy: async () => {
+          const { MediaLibraryPage } = await import('../../features/media/MediaLibraryPage.jsx')
+          return { Component: MediaLibraryPage }
+        },
+      },
+      {
+        path: 'users',
+        lazy: async () => {
+          const { StaffDirectoryPage } = await import('../../features/staff/StaffDirectoryPage.jsx')
+          return { Component: StaffDirectoryPage }
+        },
+      },
+      {
+        path: 'roles',
+        lazy: async () => {
+          const { RolesPermissionsPage } = await import('../../features/roles/RolesPermissionsPage.jsx')
+          return { Component: RolesPermissionsPage }
+        },
+      },
+      {
+        path: 'analytics',
+        lazy: async () => {
+          const { AnalyticsPage } = await import('../../features/analytics/AnalyticsPage.jsx')
+          return { Component: AnalyticsPage }
+        },
+      },
+      {
+        path: 'audit-logs',
+        lazy: async () => {
+          const { AuditLogsPage } = await import('../../features/audit/AuditLogsPage.jsx')
+          return { Component: AuditLogsPage }
+        },
+      },
+      {
+        path: 'settings',
+        lazy: async () => {
+          const { SettingsPage } = await import('../../features/settings/SettingsPage.jsx')
+          return { Component: SettingsPage }
+        },
+      },
+      {
+        path: '*',
+        element: <NotFoundPage />,
+      },
     ],
   },
 ])
@@ -76,4 +117,3 @@ const router = createBrowserRouter([
 export function AppRouter() {
   return <RouterProvider router={router} />
 }
-
