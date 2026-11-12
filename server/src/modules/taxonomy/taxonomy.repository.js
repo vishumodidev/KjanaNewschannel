@@ -57,13 +57,10 @@ export class TaxonomyRepository {
   async findOrCreateTag(name, slug) {
     return prisma.tag.upsert({
       where: { slug },
-      update: {
-        usageCount: { increment: 1 },
-      },
+      update: {},
       create: {
         name,
         slug,
-        usageCount: 1,
       },
     })
   }

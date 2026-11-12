@@ -1,5 +1,27 @@
 import { AppError } from '../errors/AppError.js'
 
+function isSuperAdmin(roles = []) {
+  return roles.some((r) => {
+    const norm = String(r).toLowerCase().replace(/[^a-z]/g, '')
+    return norm === 'superadmin'
+  })
+}
+
+function normalizePermission(perm) {
+  if (!perm) return ''
+  return String(perm)
+    .toLowerCase()
+    .replace(/^story\./, 'article:')
+    .replace(/^story:/, 'article:')
+    .replace(/^media\./, 'media:')
+    .replace(/^editorial\./, 'editorial:')
+    .replace(/^user\./, 'user:')
+    .replace(/^ad\./, 'ad:')
+    .replace(/^audit\./, 'audit:')
+    .replace(/^analytics\./, 'analytics:')
+    .replace('.', ':')
+}
+
 /**
  * Check if the authenticated user has at least one of the specified permissions.
  * Super admins bypass all permission checks.
@@ -15,13 +37,15 @@ export function requirePermission(...requiredPermissions) {
     const { roles = [], permissions = [] } = req.user
 
     // Super Admin has unconditional access
-    if (roles.includes('SUPER_ADMIN')) {
+    if (isSuperAdmin(roles)) {
       return next()
     }
 
-    const hasMatchingPermission = requiredPermissions.some((perm) =>
-      permissions.includes(perm),
-    )
+    const userPerms = permissions.map(normalizePermission)
+    const hasMatchingPermission = requiredPermissions.some((perm) => {
+      const norm = normalizePermission(perm)
+      return userPerms.includes(norm) || permissions.includes(perm)
+    })
 
     if (!hasMatchingPermission) {
       return next(
@@ -48,11 +72,15 @@ export function requireAllPermissions(...requiredPermissions) {
 
     const { roles = [], permissions = [] } = req.user
 
-    if (roles.includes('SUPER_ADMIN')) {
+    if (isSuperAdmin(roles)) {
       return next()
     }
 
-    const hasAll = requiredPermissions.every((perm) => permissions.includes(perm))
+    const userPerms = permissions.map(normalizePermission)
+    const hasAll = requiredPermissions.every((perm) => {
+      const norm = normalizePermission(perm)
+      return userPerms.includes(norm) || permissions.includes(perm)
+    })
 
     if (!hasAll) {
       return next(
@@ -79,11 +107,17 @@ export function requireRole(...allowedRoles) {
 
     const { roles = [] } = req.user
 
-    if (roles.includes('SUPER_ADMIN')) {
+    if (isSuperAdmin(roles)) {
       return next()
     }
 
-    const hasRole = allowedRoles.some((role) => roles.includes(role))
+    const hasRole = allowedRoles.some((role) =>
+      roles.some(
+        (r) =>
+          r.toLowerCase() === role.toLowerCase() ||
+          r.toLowerCase().replace(/[^a-z]/g, '') === role.toLowerCase().replace(/[^a-z]/g, ''),
+      ),
+    )
 
     if (!hasRole) {
       return next(
@@ -114,7 +148,7 @@ export function requireScope({ resolveResource }) {
       const { roles = [], scopes = [] } = req.user
 
       // Super Admin bypass
-      if (roles.includes('SUPER_ADMIN')) {
+      if (isSuperAdmin(roles)) {
         return next()
       }
 
@@ -172,4 +206,3 @@ export function requireScope({ resolveResource }) {
     }
   }
 }
-

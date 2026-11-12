@@ -168,7 +168,8 @@ export class NewsService {
     let tagIds = []
     if (payload.tags && payload.tags.length > 0) {
       const createdTags = await this.taxonomyService.resolveOrCreateTags(payload.tags)
-      tagIds = createdTags.map((t) => t.id)
+      const uniqueIds = new Set(createdTags.map((t) => t.id))
+      tagIds = Array.from(uniqueIds)
     }
 
     const storyData = {
@@ -183,16 +184,15 @@ export class NewsService {
     const articleData = {
       languageId: lang.id,
       headline: payload.headline,
-      subheadline: payload.subheadline,
       slug,
-      summary: payload.summary,
+      summary: payload.summary || payload.subheadline || null,
       body: payload.body,
       status: 'DRAFT',
       authorId: BigInt(authorId),
       isBreaking: payload.isBreaking || false,
       isFeatured: payload.isFeatured || false,
-      seoTitle: payload.seoTitle,
-      seoDescription: payload.seoDescription,
+      seoTitle: payload.seoTitle || null,
+      seoDescription: payload.seoDescription || null,
     }
 
     const result = await this.repository.createStoryWithArticle({

@@ -167,11 +167,13 @@ export class NewsRepository {
 
       // 3. Associate Tags
       if (tagIds.length > 0) {
+        const uniqueTagIds = Array.from(new Set(tagIds))
         await tx.articleTag.createMany({
-          data: tagIds.map((tagId) => ({
+          data: uniqueTagIds.map((tagId) => ({
             articleId: article.id,
             tagId,
           })),
+          skipDuplicates: true,
         })
       }
 
@@ -183,8 +185,8 @@ export class NewsRepository {
           headline: article.headline,
           summary: article.summary,
           body: article.body,
-          editorId: article.authorId,
-          changeSummary: 'Initial article creation',
+          changedById: article.authorId,
+          changeReason: 'Initial article creation',
         },
       })
 
